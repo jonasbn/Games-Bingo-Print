@@ -1,6 +1,6 @@
 INSTALL file for Games::Bingo
 
-$Id: INSTALL,v 1.1 2003/07/21 15:03:47 jonasbn Exp $
+$Id: INSTALL,v 1.2 2003/07/30 17:53:10 jonasbn Exp $
 
 INSTALLATION
 
@@ -66,4 +66,4 @@ To install Games::Bingo from tar-ball:
 
 % make install
 
-jonasbn <jonasbn@io.dk>
+jonasbn <jonasbn@cpan.org>

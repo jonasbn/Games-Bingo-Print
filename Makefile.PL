@@ -1,6 +1,6 @@
 use ExtUtils::MakeMaker;
 
-# $Id: Makefile.PL,v 1.2 2003/07/27 20:00:38 jonasbn Exp $
+# $Id: Makefile.PL,v 1.4 2004/01/07 19:32:41 jonasbn Exp $
 
 WriteMakefile(
     'NAME'	        => 'Games::Bingo::Print',
@@ -9,9 +9,10 @@ WriteMakefile(
 		'POSIX'         => 0,
 		'Test::Harness' => 0,
 		'Test::More'    => 0,
+		'Test::Pod'     => '0.95',
 		'Data::Dumper'  => 0,
 		'PDFLib'		=> '0.12',
-		'Games::Bingo'  => '0.05',
-		'Getopt::Long'   => 0,
+		'Games::Bingo'  => '0.09', #actually G::B::Card 0.02
+		'Getopt::Long'  => 0,
 	}
 );

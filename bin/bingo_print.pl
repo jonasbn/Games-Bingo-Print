@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl -w
 
-# $Id: bingo_print.pl,v 1.3 2003/07/29 20:25:19 jonasbn Exp $
+# $Id: bingo_print.pl,v 1.4 2003/07/30 17:53:11 jonasbn Exp $
 
 use strict;
 use PDFLib;
@@ -97,7 +97,7 @@ project.
 
 =head1 AUTHOR
 
-jonasbn E<gt>jonasbn@io.dkE<lt>
+jonasbn E<gt>jonasbn@cpan.orgE<lt>
 
 =cut
 
@@ -108,6 +108,6 @@ the Artistic License. See
 E<lt>http://www.perl.com/language/misc/Artistic.htmlE<gt> for details.
 
 Games::Bingo is (C) 2003 Jonas B. Nielsen (jonasbn)
-E<gt>jonasbn@io.dkE<lt>
+E<gt>jonasbn@cpan.orgE<lt>
 
 =cut

@@ -5,8 +5,8 @@ Makefile.PL
 TODO
 bin/bingo_print.pl
 lib/Games/Bingo/Print.pm
-lib/Games/Bingo/Print/Card.pm
-t/Card.t
-t/Card2.t
 t/Print.t
-t/integrity_check.t
+t/pod.t
+README
+BUGS
+META.yml                                Module meta-data (added by MakeMaker)

@@ -1,8 +1,11 @@
 TODO file for Games::Bingo::Print
 
-$Id: TODO,v 1.3 2003/07/29 20:11:53 jonasbn Exp $
+$Id: TODO,v 1.6 2004/01/07 19:32:41 jonasbn Exp $
 
 - Get Games::Bingo to work with PDFLib-lite. The open source version of
   PDFLib which seem to be the free part of the future PDFLib.
 
 - Make support for other paperformats than A4?
+
+- Add generation of master plate (all numbers) on paper for the referee?
+  (see output example from Games::Bingo bingo.pl)

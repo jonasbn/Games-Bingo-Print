@@ -1,19 +1,17 @@
 package Games::Bingo::Print;
 
-# $Id: Print.pm,v 1.6 2003/07/29 20:25:19 jonasbn Exp $
+# $Id: Print.pm,v 1.10 2004/01/07 19:32:41 jonasbn Exp $
 
 use strict;
 use integer;
 use Carp;
-use Data::Dumper;
 use PDFLib;
 use vars qw($VERSION);
 
 use lib qw(lib ../lib);
-use Games::Bingo::Print::Card;
+use Games::Bingo::Card;
 
-$VERSION = '0.01';
-my $dump = 0;
+$VERSION = '0.02';
 
 sub new {
 	my ($class, %opts) = @_;
@@ -35,7 +33,7 @@ sub new {
 	};    	
     
     if ($@) {
-		croak $@;
+		warn $@;
 		return undef;
 	} else {
 		return $self;	
@@ -120,23 +118,20 @@ sub _print_card {
 	my $self = shift;
 	my %args = @_;
 
-	print STDERR "_print_card:\n" if $dump;
-	print STDERR Dumper \%args if $dump;
-
-	my $p = Games::Bingo::Print::Card->new();
+	my $p = Games::Bingo::Card->new();
 	$p = $p->populate();
-	
+		
 	my $ysc  = $args{'y_start_cordinate'};
 	my $yec  = $args{'y_end_cordinate'};
 	my $xsc  = $args{'x_start_cordinate'};
 	my $size = $args{'size'};
 	
-	my $y = 1;
+	my $y = 3;
 	for (my $ry = $ysc; $ry < $yec; $ry += $size) {
 		my @numbers;
 		for (my $x = 0; $x <= 9; $x++) {
 			push(@numbers, $p->[$x-1]->[$y-1]);
-		}		
+		}	
 		$self->_print_row(
 				  size 			    => $size,
 			      x_start_cordinate => $xsc,
@@ -144,18 +139,14 @@ sub _print_card {
 			      x_end_cordinate   => 540,
 			      numbers 		    => \@numbers,
 		);
-		$y++;
+		$y--;
 	}
-
 	return 1;
 }
 
 sub _print_row {
 	my $self = shift;
 	my %args = @_;
-
-	print STDERR "_print_row:\n" if $dump;	
-	print STDERR Dumper \%args if $dump;
 	
 	my $ysc     = $args{'y_start_cordinate'};
 	my $xsc     = $args{'x_start_cordinate'};
@@ -166,7 +157,7 @@ sub _print_row {
 	my $x;
 	for (my $rx = $xsc; $rx <= $xec; $rx += $size) {
 		++$x;
-		my $label = $numbers->[$x];
+		my $label = $numbers->[$x]?$numbers->[$x]:'';
 		
 		$self->{pdf}->rect(
 		    'x' => $rx,
@@ -190,7 +181,6 @@ sub _print_row {
  	   	);
 
 	}
-
 	return 1;
 }
 
@@ -200,7 +190,7 @@ __END__
 
 =head1 NAME
 
-Games::Bingo::Print - PDF Generation Class
+Games::Bingo::Print - a PDF Generation Class for Games::Bingo
 
 =cut
 
@@ -232,6 +222,8 @@ containing bingo cards.
 The page contains space for 3 bingo cards, each consisting of 3 rows
 and 10 columns like this:
 
+=begin text
+
 +--+--+--+--+--+--+--+--+--+
 |  |  |  |  |  |  |  |  |  |
 +--+--+--+--+--+--+--+--+--+
@@ -240,7 +232,25 @@ and 10 columns like this:
 |  |  |  |  |  |  |  |  |  |
 +--+--+--+--+--+--+--+--+--+
 
+=end text
+
+=begin html
+
+E<lt>preE<gt>
++--+--+--+--+--+--+--+--+--+
+|  |  |  |  |  |  |  |  |  |
++--+--+--+--+--+--+--+--+--+
+|  |  |  |  |  |  |  |  |  |
++--+--+--+--+--+--+--+--+--+
+|  |  |  |  |  |  |  |  |  |
++--+--+--+--+--+--+--+--+--+
+E<lt>/preE<gt>
+
+=end html
+
 So a filled out example card could look like this:
+
+=begin text
 
 +--+--+--+--+--+--+--+--+--+
 | 4|13|  |30|  |  |62|  |  |
@@ -249,6 +259,24 @@ So a filled out example card could look like this:
 +--+--+--+--+--+--+--+--+--+
 |  |14|27|  |  |  |65|  |80|
 +--+--+--+--+--+--+--+--+--+
+
+=end text
+
+=begin html
+
+<pre>
+
++--+--+--+--+--+--+--+--+--+
+| 4|13|  |30|  |  |62|  |  |
++--+--+--+--+--+--+--+--+--+
+|  |  |22|  |41|53|  |78|  |
++--+--+--+--+--+--+--+--+--+
+|  |14|27|  |  |  |65|  |80|
++--+--+--+--+--+--+--+--+--+
+
+</pre>
+
+=end html
 
 =cut
 
@@ -280,8 +308,9 @@ default is bingo.pdf
 
 =head2 print_pages
 
-The B<print_pages> is the main method it takes two arguments, the number of
-pages you want to print and optionally the number of cards you want to print on a page. 
+The B<print_pages> is the main method it takes two arguments, the
+number of pages you want to print and optionally the number of cards
+you want to print on a page. 
 
 The default is 3 cards on a page which also is the maximum.
 
@@ -315,7 +344,9 @@ The pixel size of the box containg the number,
 
 =back
 
-=head2 _print_row This method prints a single row.
+=head2 _print_row
+
+This method prints a single row.
 
 =over 4
 	
@@ -347,9 +378,11 @@ The numbers to be inserted into the row as an reference to an array.
 
 =over 4
 
-=item PDFLib
+=item Games::Bingo
 
-=item Games::Bingo::Print::Card
+=item Games::Bingo::Card
+
+=item PDFLib
 
 =item bin/bingo_print.pl
 

@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl -w
 
-# $Id: Print.t,v 1.2 2003/07/29 20:25:19 jonasbn Exp $
+# $Id: Print.t 1835 2007-03-17 17:36:20Z jonasbn $
 
 use strict;
 use Data::Dumper;

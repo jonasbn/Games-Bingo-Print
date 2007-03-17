@@ -1,17 +1,30 @@
-#XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#
-name:         Games-Bingo-Print
-version:      0.02
-version_from: lib/Games/Bingo/Print.pm
-installdirs:  site
+---
+name: Games-Bingo-Print
+version: 0.03
+author:
+  - 'Jonas B. Nielsen, <jonasbn@cpan.org>'
+abstract: a PDF Generation Class for Games::Bingo
+license: artistic
+resources:
+  license: http://opensource.org/licenses/artistic-license.php
 requires:
-    Getopt::Long:                  0
-    Games::Bingo:                  0.09
-    PDFLib:                        0.12
-    Test::Harness:                 0
-    Test::Pod:                     0.95
-    Data::Dumper:                  0
-    Test::More:                    0
-    POSIX:                         0
-
-distribution_type: module
-generated_by: ExtUtils::MakeMaker version 6.12
+  Data::Dumper: 0
+  Games::Bingo: 0.09
+  Getopt::Long: 0
+  PDFLib: 0.12
+  POSIX: 0
+  Test::Harness: 0
+  Test::More: 0
+  Test::Pod: 0.95
+provides:
+  Games::Bingo::Print:
+    file: lib/Games/Bingo/Print.pm
+    version: 0.03
+no_index:
+  directory:
+    - t
+    - examples
+generated_by: Module::Build version 0.2806
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.2.html
+  version: 1.2

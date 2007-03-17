@@ -1,30 +1,31 @@
 #!/usr/local/bin/perl -w
 
-# $Id: bingo_print.pl,v 1.4 2003/07/30 17:53:11 jonasbn Exp $
+# $Id: bingo_print.pl 1835 2007-03-17 17:36:20Z jonasbn $
 
 use strict;
 use PDFLib;
 use Getopt::Long;
 use Data::Dumper;
-use lib qw(lib ../lib);
 use Games::Bingo::Print;
 
-my ($cards, $help, $heading, $text, $filename);
+my ($cards, $help, $heading, $text, $filename, $papersize);
 
 GetOptions (
-	'help'       => \$help,
-	'heading=s'  => \$heading,
-	'text=s'     => \$text,
-	'filename=s' => \$filename,
-	'cards=i'    => \$cards,
+	'help'        => \$help,
+	'heading=s'   => \$heading,
+	'text=s'      => \$text,
+	'filename=s'  => \$filename,
+	'cards=i'     => \$cards,
+	'papersize=s' => \$papersize,
 );
 
 my $pages = shift @ARGV || usage();
 
 my $bp = Games::Bingo::Print->new(
-	'heading'  => $heading,
-	'text'     => $text,
-	'filename' => $filename,
+	'heading'   => $heading,
+	'text'      => $text,
+	'filename'  => $filename,
+	'papersize' => $papersize,
 );
 
 $bp->print_pages($pages, $cards);
@@ -39,6 +40,7 @@ sub usage {
 	print "\t--text\ta string to be inserted underneath the header\n";
 	print "\t--filename\ta filename for the PDF target file\n";
 	print "\t--cards\tthe number of cards per page (1-3, 3 is default)\n";
+	print "\t--papersize\tthe format of the paper, A4 is default)\n";
 	
 	exit(0);
 }
@@ -47,25 +49,25 @@ __END__
 
 =head1 NAME
 
-bingo_plates.pl
+bingo_plates.pl - simple script to generate PDFs containing bingo cards
 
 =cut
 
 =head1 SYNOPSIS
 
-% bingo_print.pl 3
+	% bingo_print.pl 3
 
-% bingo_print.pl 10
+	% bingo_print.pl 10
 
-% bingo_print.pl --help
+	% bingo_print.pl --help
 
-% bingo_print.pl --cards=1 3
+	% bingo_print.pl --cards=1 3
 
-% bingo_print.pl --filename=mybingo.pdf --cards=1 10
+	% bingo_print.pl --filename=mybingo.pdf --cards=1 10
 
-% bingo_print.pl --heading="My Bingo" --cards=1 10
+	% bingo_print.pl --heading="My Bingo" --cards=1 10
 
-% bingo_print.pl --heading="My Bingo" --text="Phantastic Prizes!" --cards=1 10
+	% bingo_print.pl --heading="My Bingo" --text="Phantastic Prizes!" --cards=1 10
 
 =cut
 
@@ -80,7 +82,7 @@ bingo.pl you have everything you need to play bingo.
 
 =over 4
 
-=item Games::Bingo
+=item L<Games::Bingo>
 
 =item bin/bingo.pl
 
@@ -107,7 +109,7 @@ Games::Bingo and related modules are free software and is released under
 the Artistic License. See
 E<lt>http://www.perl.com/language/misc/Artistic.htmlE<gt> for details.
 
-Games::Bingo is (C) 2003 Jonas B. Nielsen (jonasbn)
+Games::Bingo is (C) 2003-2007 Jonas B. Nielsen (jonasbn)
 E<gt>jonasbn@cpan.orgE<lt>
 
 =cut

@@ -1,24 +1,9 @@
-# $Id: pod.t,v 1.1 2003/10/04 08:18:43 jonasbn Exp $ 
+# $Id: pod.t 1835 2007-03-17 17:36:20Z jonasbn $ 
 
-#pod test courtesy of petdance
-#http://use.perl.org/~petdance/journal/12391
+use Test::More;
 
-use Test::More; 
-use File::Spec; 
-use File::Find; 
-use strict; 
+eval "use Test::Pod 1.14";
+plan skip_all => 'Test::Pod 1.14 required' if $@;
+plan skip_all => 'set TEST_POD to enable this test' unless $ENV{TEST_POD};
 
-eval "use Test::Pod 0.95"; 
-
-if ($@) { 
-	plan skip_all => 'Test::Pod v0.95 required for testing POD';
-} else { 
-	Test::Pod->import; 
-	my @files; 
-	my $blib = File::Spec->catfile(qw(blib lib)); 
-	find( sub {push @files, $File::Find::name if /\.p(l|m|od)$/}, $blib); 
-	plan tests => scalar @files; 
-	foreach my $file (@files) { 
-		pod_file_ok($file); 
-	} 
-}
+all_pod_files_ok();

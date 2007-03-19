@@ -1,6 +1,6 @@
 ---
 name: Games-Bingo-Print
-version: 0.03
+version: 0.04
 author:
   - 'Jonas B. Nielsen, <jonasbn@cpan.org>'
 abstract: a PDF Generation Class for Games::Bingo
@@ -19,7 +19,7 @@ requires:
 provides:
   Games::Bingo::Print:
     file: lib/Games/Bingo/Print.pm
-    version: 0.03
+    version: 0.04
 no_index:
   directory:
     - t

@@ -11,6 +11,9 @@ my $build = Module::Build->new(
     distribution_type => 'module',
     license           => 'artistic',
     recursive_test_files => 1,
+    scripts => {
+        'bin/bingo_print.pl' => 'bin/bingo_print.pl',
+    },
 	requires => { 
 		'POSIX'         => 0,
 		'Test::Harness' => 0,

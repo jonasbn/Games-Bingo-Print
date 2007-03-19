@@ -16,7 +16,7 @@ WriteMakefile
                          },
           'INSTALLDIRS' => 'site',
           'EXE_FILES' => [
-                           '/Users/jonasbn/develop/svn-cph.pm/trunk/modules/Games-Bingo-Print/bin/bingo_print.pl'
+                           'bin/bingo_print.pl'
                          ],
           'PL_FILES' => {}
         )

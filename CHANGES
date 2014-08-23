@@ -6,6 +6,11 @@ This is the CHANGES file for the separated Games::Bingo::Print, which
 used to be a part of Games::Bingo. So for reference for versions
 earlier than 0.01 please refer to the Games::Bingo distribution.
 
+HEAD 
+
+- Migrated build system from Module::Build to Dist::Zilla
+
+
 Release 0.04 - Mon Mar 19 2007
 
 - Fixed the usual problem in generated Makefile.PL, with bin/ directory

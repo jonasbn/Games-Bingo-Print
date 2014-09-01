@@ -1,0 +1,239 @@
+[![CPAN version](https://badge.fury.io/pl/Games-Bingo-Print.svg)](http://badge.fury.io/pl/Games-Bingo-Print)
+[![Build Status](https://travis-ci.org/jonasbn/Games-Bingo-Print.svg?branch=master)](https://travis-ci.org/jonasbn/Games-Bingo-Print)
+[![Coverage Status](https://coveralls.io/repos/jonasbn/Games-Bingo-Print/badge.png)](https://coveralls.io/r/jonasbn/Games-Bingo-Print)
+
+# NAME
+
+Games::Bingo::Print - a PDF Generation Class for Games::Bingo
+
+# SYNOPSIS
+
+        use Games::Bingo::Print;
+
+        my $bp = Games::Bingo::Print-E<gt>new();
+
+        $bp-E<gt>print_pages(2);
+
+        my $bp = Games::Bingo::Print->new(
+                heading  => 'Jimmys bingohalle',
+                text     => 'its all in the game!'
+                filename => 'jimmys.pdf
+        );
+
+# VERSION
+
+This documentation describes version 0.03 of Games::Bingo::Print
+
+# DESCRIPTION
+
+This is that actual printing class. It generates a PDF file with pages
+containing bingo cards.
+
+The page contains space for 3 bingo cards, each consisting of 3 rows
+and 10 columns like this:
+
+<div>
+    E<lt>preE<gt>
+    +--+--+--+--+--+--+--+--+--+
+    |  |  |  |  |  |  |  |  |  |
+    +--+--+--+--+--+--+--+--+--+
+    |  |  |  |  |  |  |  |  |  |
+    +--+--+--+--+--+--+--+--+--+
+    |  |  |  |  |  |  |  |  |  |
+    +--+--+--+--+--+--+--+--+--+
+    E<lt>/preE<gt>
+</div>
+
+So a filled out example card could look like this:
+
+<div>
+    <pre>
+
+    +--+--+--+--+--+--+--+--+--+
+    | 4|13|  |30|  |  |62|  |  |
+    +--+--+--+--+--+--+--+--+--+
+    |  |  |22|  |41|53|  |78|  |
+    +--+--+--+--+--+--+--+--+--+
+    |  |14|27|  |  |  |65|  |80|
+    +--+--+--+--+--+--+--+--+--+
+
+    </pre>
+</div>
+
+# SUBROUTINES/METHODS
+
+## new
+
+The constructor
+
+The constructor can take several options, all these are optional.
+
+- heading
+
+    The heading on the generated bingo card PDF.
+
+- text 
+
+    The smaller text on the generated bingo card PDF, the default is the
+    authors name (SEE AUTHOR section below).
+
+- filename
+
+    The name of the file containing the generated bingo card PDF, the
+    default is 'bingo.pdf'
+
+If it is not possible to create an object the constructor dies with the diagnostic
+'Unable to construct object' and some additional diagnostic depending on the
+problem, which might relate to third party components used. See DEPENDENCIES.
+
+## print\_pages
+
+The __print\_pages__ is the main method it takes two arguments, the
+number of pages you want to print and optionally the number of cards
+you want to print on a page. 
+
+The default is 3 cards on a page which also is the maximum.
+
+The __print\_pages__ method returns 1 on success and 0 on failure, failure issues
+a warning.
+
+__print\_pages__ calls __\_print\_card__.
+
+## \_print\_card
+
+This is the method used to print the actual card, it calls __\_print\_row__ 3
+times.
+
+- y\_start\_cordinate
+
+    The __Y__ start cordinate (we print botton up for now, please see the TODO file).
+
+- y\_end\_cordinate
+
+    The __Y__ end cordinate (we print botton up for now, please see the TODO file).
+
+- x\_start\_cordinate
+
+    The __X__ start cordinate (we print botton up for now, please see the TODO file).
+
+- size
+
+    The pixel size of the box containg the number,
+
+## \_print\_row
+
+This method prints a single row.
+
+- y\_start\_cordinate
+
+    The __Y__ start cordinate (we print botton up for now, please see the TODO file).
+
+- x\_start\_cordinate
+
+    The __X__ start cordinate (we print botton up for now, please see the TODO file).
+
+- x\_end\_cordinate
+
+    The __X__ end cordinate (we print botton up for now, please see the TODO file),
+
+- size
+
+    The pixel size of the box containg the number.
+
+- numbers
+
+    The numbers to be inserted into the row as an reference to an array.
+
+# DIAGNOSTICS
+
+- 'Unable to construct object', a dianostic from the constructor ([new](https://metacpan.org/pod/new))
+and some additional diagnostic depending on the problem, which might relate to
+third party components used. See DEPENDENCIES.
+
+# CONFIGURATION AND ENVIRONMENT
+
+Games::Bingo::Print requires no special configuration or environment apart from
+what is listed in the DEPENDENCIES section.
+
+# DEPENDENCIES
+
+- [Games::Bingo](https://metacpan.org/pod/Games::Bingo)
+- [Games::Bingo::Card](https://metacpan.org/pod/Games::Bingo::Card)
+- [PDFLib](https://metacpan.org/pod/PDFLib)
+
+# INCOMPATIBILITIES
+
+There are no known incompatibilities.
+
+# BUGS AND LIMITATIONS
+
+The PDF generator only works with [Games::Bingo](https://metacpan.org/pod/Games::Bingo)
+
+# BUGREPORTING
+
+Please report issues via CPAN RT:
+
+    http://rt.cpan.org/NoAuth/Bugs.html?Dist=Business-DK-CPR
+
+or by sending mail to
+
+    bug-Business-DK-CPR@rt.cpan.org
+
+# SUPPORT
+
+You can find documentation for this module with the perldoc command.
+
+    perldoc Games::Bingo::Print
+
+You can also look for information at:
+
+- AnnoCPAN: Annotated CPAN documentation
+
+    [http://annocpan.org/dist/Games-Bingo-Print](http://annocpan.org/dist/Games-Bingo-Print)
+
+- CPAN Ratings
+
+    [http://cpanratings.perl.org/d/Games-Bingo-Print](http://cpanratings.perl.org/d/Games-Bingo-Print)
+
+- RT: CPAN's request tracker
+
+    [http://rt.cpan.org/NoAuth/Bugs.html?Dist=Games-Bingo-Print](http://rt.cpan.org/NoAuth/Bugs.html?Dist=Games-Bingo-Print)
+
+- Search CPAN
+
+    [http://search.cpan.org/dist/Games-Bingo-Print](http://search.cpan.org/dist/Games-Bingo-Print)
+
+# TEST
+
+I am currently not able to generate a test coverage report for
+Games::Bingo::Print.
+
+Perl::Critic tests (t/critic) are enable by settting the environment variable
+TEST\_AUTHOR.
+
+Kwalitee tests (t
+
+# SEE ALSO
+
+- bin/bingo\_print.pl
+
+# TODO
+
+The TODO file contains a complete list for the Games::Bingo::Print class.
+
+# AUTHOR
+
+- Jonas B. Nielsen, (jonasbn) `<jonasbn@cpan.org>`
+
+# ACKNOWLEDGEMENTS
+
+- Thanks to Matt Sergeant for suggesting using PDFLib. 
+
+# LICENSE AND COPYRIGHT
+
+Games::Bingo::Print and related modules are free software and is
+released under the Artistic License. See
+<http://www.perl.com/language/misc/Artistic.html> for details.
+
+Games::Bingo::Print is (C) 2003-2007 Jonas B. Nielsen (jonasbn)
+<jonasbn@cpan.org>

@@ -191,6 +191,14 @@ __END__
 
 =pod
 
+=begin markdown
+
+[![CPAN version](https://badge.fury.io/pl/Games-Bingo-Print.svg)](http://badge.fury.io/pl/Games-Bingo-Print)
+[![Build Status](https://travis-ci.org/jonasbn/Games-Bingo-Print.svg?branch=master)](https://travis-ci.org/jonasbn/Games-Bingo-Print)
+[![Coverage Status](https://coveralls.io/repos/jonasbn/Games-Bingo-Print/badge.png)](https://coveralls.io/r/jonasbn/Games-Bingo-Print)
+
+=end markdown
+
 =head1 NAME
 
 Games::Bingo::Print - a PDF Generation Class for Games::Bingo

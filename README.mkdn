@@ -72,7 +72,7 @@ The constructor can take several options, all these are optional.
 
     The heading on the generated bingo card PDF.
 
-- text 
+- text
 
     The smaller text on the generated bingo card PDF, the default is the
     authors name (SEE AUTHOR section below).
@@ -90,7 +90,7 @@ problem, which might relate to third party components used. See DEPENDENCIES.
 
 The __print\_pages__ is the main method it takes two arguments, the
 number of pages you want to print and optionally the number of cards
-you want to print on a page. 
+you want to print on a page.
 
 The default is 3 cards on a page which also is the maximum.
 
@@ -227,13 +227,12 @@ The TODO file contains a complete list for the Games::Bingo::Print class.
 
 # ACKNOWLEDGEMENTS
 
-- Thanks to Matt Sergeant for suggesting using PDFLib. 
+- Thanks to Matt Sergeant for suggesting using PDFLib.
 
 # LICENSE AND COPYRIGHT
 
-Games::Bingo::Print and related modules are free software and is
-released under the Artistic License. See
-<http://www.perl.com/language/misc/Artistic.html> for details.
-
-Games::Bingo::Print is (C) 2003-2007 Jonas B. Nielsen (jonasbn)
+Games::Bingo::Print is (C) 2003-2014 Jonas B. Nielsen (jonasbn)
 <jonasbn@cpan.org>
+
+Games::Bingo::Print and related modules are free software and is
+released under the Artistic License 2.0

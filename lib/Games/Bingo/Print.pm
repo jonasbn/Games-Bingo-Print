@@ -11,7 +11,7 @@ use vars qw($VERSION);
 use 5.008; #perl 5.8
 use Games::Bingo::Card;
 
-$VERSION = '0.04';
+$VERSION = '0.05';
 
 sub new {
     my ( $class, %opts ) = @_;
@@ -299,7 +299,7 @@ The constructor can take several options, all these are optional.
 
 The heading on the generated bingo card PDF.
 
-=item * text 
+=item * text
 
 The smaller text on the generated bingo card PDF, the default is the
 authors name (SEE AUTHOR section below).
@@ -319,7 +319,7 @@ problem, which might relate to third party components used. See DEPENDENCIES.
 
 The B<print_pages> is the main method it takes two arguments, the
 number of pages you want to print and optionally the number of cards
-you want to print on a page. 
+you want to print on a page.
 
 The default is 3 cards on a page which also is the maximum.
 
@@ -358,7 +358,7 @@ The pixel size of the box containg the number,
 This method prints a single row.
 
 =over 4
-	
+
 =item * y_start_cordinate
 
 The B<Y> start cordinate (we print botton up for now, please see the TODO file).
@@ -478,7 +478,7 @@ The TODO file contains a complete list for the Games::Bingo::Print class.
 
 =head1 AUTHOR
 
-=over 
+=over
 
 =item * Jonas B. Nielsen, (jonasbn) C<< <jonasbn@cpan.org> >>
 
@@ -494,7 +494,7 @@ The TODO file contains a complete list for the Games::Bingo::Print class.
 
 =head1 LICENSE AND COPYRIGHT
 
-Games::Bingo::Print is (C) 2003-2015 Jonas B. Nielsen (jonasbn)
+Games::Bingo::Print is (C) 2003-2014 Jonas B. Nielsen (jonasbn)
 E<lt>jonasbn@cpan.orgE<gt>
 
 Games::Bingo::Print and related modules are free software and is

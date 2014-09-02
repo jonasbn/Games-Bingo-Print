@@ -16,7 +16,7 @@ HEAD
 - Migrated build system from Module::Build to Dist::Zilla
 
 
-Release 0.04 - Mon Mar 19 2007
+0.04 2007-03-19, bug fix release, update not necessary
 
 - Fixed the usual problem in generated Makefile.PL, with bin/ directory
   being referenced with full path, the fix is to mention in the Build.PL
@@ -24,9 +24,9 @@ Release 0.04 - Mon Mar 19 2007
     scripts => {
         'bin/bingo_print.pl' => 'bin/bingo_print.pl',
     },
-  
 
-Release 0.03 - Sat Mar 17 2007, update not necessary
+
+0.03 2007-03-17, maintenance release, update not necessary
 
 - Updated MANIFEST
 
@@ -61,7 +61,7 @@ Release 0.03 - Sat Mar 17 2007, update not necessary
 - Updated installation documentation, see INSTALL file
 
 
-Release 0.02 - Released 7th. of january 2004
+0.02 2004-01-07, update recommended
 
 - Added missing README to the distribution
 
@@ -76,9 +76,9 @@ Release 0.02 - Released 7th. of january 2004
 
 - Games::Bingo::Print::Card (and tests) have been extracted from this
   module and is being merged with the Games::Bingo::Card class.
-  
-- Turned the card printing around, the card datamodel has also been turned upside 
-  down in Games::Bingo::Card now in Games::Bingo 0.09
+
+- Turned the card printing around, the card datamodel has also been turned
+  upside down in Games::Bingo::Card now in Games::Bingo 0.09
 
 - Added default value of the empty string, hence the new card data
   model uses undef, resulting in multiple warnings from PDFLib
@@ -89,7 +89,7 @@ Release 0.02 - Released 7th. of january 2004
   for the record)
 
 
-Release 0.01 - Released 29th. of july 2003
+0.01 2003-07-29, initial release
 
 - Encapsulated PDFLib code in print_pages in an eval (the test in
   Print.t failed for some reason), returns 1 on success and 0 on failure.
@@ -109,8 +109,8 @@ Release 0.01 - Released 29th. of july 2003
 
 - Wrote tests of:
     - _print_row
-	- _print_plate
-	
+    - _print_plate
+
 - Renamed bin/bingo_plates.pl to bin/bingo_print.pl
 
 - Change of plate term to card
@@ -120,12 +120,12 @@ Release 0.01 - Released 29th. of july 2003
 - Added an additional argument to print_pages so the number of cards can be
   between 1 and 3
 
-- Added new commandline parameter to bin/bingo_print.pl, cards per page 
+- Added new commandline parameter to bin/bingo_print.pl, cards per page
   (see above)
 
 - The generated PDF has been fine-tuned a bit, right justifying does
   not seem to work though?
-  
+
 - Pages now generated top-down instead of bottom up (prettier when you
   only require a single og two cards on a page)
 

@@ -8,7 +8,7 @@ use integer;
 use Carp qw(croak);
 use PDFLib;
 use vars qw($VERSION);
-
+use 5.008; #perl 5.8
 use Games::Bingo::Card;
 
 $VERSION = '0.04';

@@ -4,7 +4,7 @@ This is the CHANGES file for the separated Games::Bingo::Print, which
 used to be a part of Games::Bingo. So for reference for versions
 earlier than 0.01 please refer to the Games::Bingo distribution.
 
-0.05 2014-09-02, maintenance release, update not necessary
+0.05 TBD, maintenance release, update not necessary
 
 - Defined perl version requirement, as pointed out by Perl::Critic. Version
   5.8 is required as requied to POD syntax use

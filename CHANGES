@@ -8,6 +8,9 @@ earlier than 0.01 please refer to the Games::Bingo distribution.
 
 HEAD 
 
+- Defined perl version requirement, as pointed out by Perl::Critic. Version
+  5.8 is required as requied to POD syntax use
+
 - Upgraded license to Artistic 2.0 from Artistic 1.0
 
 - Migrated build system from Module::Build to Dist::Zilla

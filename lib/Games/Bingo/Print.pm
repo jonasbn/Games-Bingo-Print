@@ -488,17 +488,16 @@ The TODO file contains a complete list for the Games::Bingo::Print class.
 
 =over
 
-=item * Thanks to Matt Sergeant for suggesting using PDFLib. 
+=item * Thanks to Matt Sergeant for suggesting using PDFLib.
 
 =back
 
 =head1 LICENSE AND COPYRIGHT
 
-Games::Bingo::Print and related modules are free software and is
-released under the Artistic License. See
-E<lt>http://www.perl.com/language/misc/Artistic.htmlE<gt> for details.
-
-Games::Bingo::Print is (C) 2003-2007 Jonas B. Nielsen (jonasbn)
+Games::Bingo::Print is (C) 2003-2015 Jonas B. Nielsen (jonasbn)
 E<lt>jonasbn@cpan.orgE<gt>
+
+Games::Bingo::Print and related modules are free software and is
+released under the Artistic License 2.0
 
 =cut

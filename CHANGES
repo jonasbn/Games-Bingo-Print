@@ -8,6 +8,8 @@ earlier than 0.01 please refer to the Games::Bingo distribution.
 
 HEAD 
 
+- Upgraded license to Artistic 2.0 from Artistic 1.0
+
 - Migrated build system from Module::Build to Dist::Zilla
 
 
